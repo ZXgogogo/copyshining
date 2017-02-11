@@ -1,0 +1,193 @@
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body,
+			html {
+				width: 100%;
+				height: 100%;
+				
+				/*overflow: auto;*/
+				/*当宽度写百分比时，百分比不包括scroll,所以需要预先设有滚动占位*/
+				/*overflow-y: scroll;*/
+				
+			}
+			
+			a {
+				text-decoration: none;
+				color: black;
+				display: block;
+			}
+			
+			ul {
+				list-style: none;
+				display: block;
+			}
+			
+			.wrapp {
+				/*忽略滚动条,跳过html以窗口做为参考*/
+				/*是包含滚动条的*/
+				width: 98vw;
+				/*不包含滚动条*/
+				/*width: 98%;*/
+				margin: 0 auto;
+				/*background: yellow;*/
+				position: relative;
+			
+			}
+			
+			@media only screen and (min-width:860px) {
+				.li {
+					width: 25%;
+				}
+			}
+			
+			@media only screen and (min-width:480px)and(max-width:860px) {
+				.li {
+					width: 33.33%;
+				}
+			}
+			
+			@media only screen and (max-width:480px) {
+				.li {
+					width: 50%;
+				}
+			}
+			
+			.li {
+				
+				position: absolute;
+				top: 0;
+				left: 0;
+				/*margin和padding用百分比时,都是以width为基准*/
+				/*百分比是以盒子的宽为基准的,不管是padding-top*/
+				/*当padding设置值时(不管设置的是padding的左右还是上下,都是以width来算的),值大小是根据width的百分比来算的,*/
+				/*li的父级为ul,宽度为百分百,当padding设0.3时,意思就是有8个0.3%;*/
+				/*border: 10px solid red;*/
+				/*可以用border来当边框,但border不可以设置百分比哦*/
+				padding: 5px;
+				/*怪盒子模型*/
+				/*好聪明,用怪盒子模型,可以让padding不撑开,而是让它压缩图片的宽高*/
+				/*设置这个就是指怪盒子模型了,如果写box-sizing:content-box;就是正常盒子模型*/
+				/*用法:当并列写两个div时,而且还想要两个div都有边框,此时这个边框可以用padding撑开也可以设置border,但若正常盒子,肯定会被;*/
+				/*记下来,所以用怪盒子,绝对不会被记下来*/
+				box-sizing: border-box;
+				display: block;
+			}
+			
+			.li a {
+				width: 100%;
+				position: relative;
+			}
+			
+			.li img {
+				width: 100%;
+				display: block;
+			}
+			
+			.li div {
+				width: 100%;
+				/*height: 100%;*/
+				position: absolute;
+				top: 0;
+				left: 0;
+				/*background-color: red;*/
+			}
+			
+			.masking {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				top: 0;
+				left: 0;
+				background-color: rgba(0, 0, 0, 0.3);
+				display: none;
+			}
+			
+			.masking .box img {
+				width: 100%;
+				height: 100%;
+			}
+		li div{
+			width: 100%;
+			height: 100%;
+		}
+		
+
+
+.footer {
+	width: 100%;
+	text-align: center;
+	margin-top: 30px;
+	
+	
+	
+	
+}
+
+.footer ul li {
+	margin-top: 15px;
+	margin-left: 10px;
+	display: inline-block;
+	list-style-type: none;
+}
+
+.footer ul li:nth-child(1) {
+	width: 25px;
+	height: 25px;
+	position: relative;
+}
+
+.footer ul li:nth-child(2) {
+	width: 25px;
+	height: 25px;
+	position: relative;
+}
+
+.footer ul li:nth-child(3) {
+	width: 25px;
+	height: 25px;
+	position: relative;
+}
+
+.footer ul li:nth-child(4) {
+	width: 25px;
+	height: 25px;
+	position: relative;
+}
+
+.footer ul li img:nth-child(2) {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: none;
+}
+
+
+
+
+.footer ul li a {
+	display: block;
+	text-decoration: none;
+}
+
+.footer .mail {
+	width: 35px;
+	height: 26px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.footer .mail img:nth-child(2) {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: none;
+}
+
+.copyright {
+	margin-top: 15px;
+	font-size: 0.88em;
+	color: rgb(127, 127, 127);
+}

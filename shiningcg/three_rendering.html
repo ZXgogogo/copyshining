@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/JQuery-3.1.1.min.js"></script>
+		<!--<script type="text/javascript" src="js/threeJS.js"></script>-->
+		<link rel="stylesheet" type="text/css" href="css/three.css" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			body,
+			html {
+				width: 100%;
+				height: 100%;
+				/*预先设有滚动占位*/
+				/*overflow: auto;*/
+				/*overflow-y: scroll;*/
+				/*overflow: hidden;*/
+			}
+			
+			.head {
+				width: 100%;
+				height: 70px;
+				background-color: rgb(33, 33, 33);
+			}
+			
+			#nav {
+				max-width: 1200px;
+				margin: 0 auto;
+				/** 用不了,auto没有用,只有写一个数才行*/
+				/*margin: 0px 400px;*/
+			}
+			
+			.ulp {
+				margin-top: -30px;
+				margin-left: 40%;
+				height: 30px;
+				width: 900px;
+			}
+			
+			#nav ul li {
+				list-style-type: none;
+				width: 60px;
+				line-height: 25px;
+				text-align: center;
+				display: inline-block;
+				margin-right: 40px;
+			}
+			
+			#nav ul li a {
+				text-decoration: none;
+				color: rgb(167, 166, 153);
+			}
+			
+			#nav-list3 {
+				border: 1px solid white;
+				border-radius: 6px;
+			}
+			
+			.head #nav #nav-list4 {
+				margin-left: 10px;
+				width: 120px;
+			}
+			
+			.head #nav #nav-list3 {
+				width: 90px;
+			}
+			
+			.head #nav #nav-list6 {
+				width: 80px;
+			}
+			
+			.head #nav #nav-list2:hover {
+				border: 1px solid white;
+				border-radius: 6px;
+			}
+			
+			.head #nav #nav-list1:hover {
+				border: 1px solid white;
+				border-radius: 6px;
+			}
+			
+			.head #nav #nav-list4:hover {
+				border: 1px solid white;
+				border-radius: 6px;
+			}
+			
+			.head #nav #nav-list5:hover {
+				border: 1px solid white;
+				border-radius: 6px;
+			}
+			
+			.head #nav #nav-list6:hover {
+				border: 1px solid white;
+				border-radius: 6px;
+			}
+			
+			#nav img {
+				margin-top: 16px;
+			}
+			
+			.shan {
+				float: right;
+				margin-top: -30px;
+				margin-right: 10px;
+				display: none;
+			}
+		
+			.baoguo {
+				/*width: 100%;*/
+				/*height: 100vh;*/
+				/*overflow: auto;*/
+				position: relative;
+			}
+			/*中间部分*/
+			
+			#banner {
+				position: relative;
+				/*max-width: 1920px;*/
+				height: 55vw;
+				width: 100%;
+				overflow: hidden;
+				margin-bottom: 20px;
+			}
+			
+			#banner_list img {
+				border: 0px;
+				width: 100%;
+			}
+			
+			#banner ul {
+				position: absolute;
+				left: 45vw;
+				bottom: 1vw;
+				margin-left: -45px;
+				list-style-type: none;
+				z-index: 100;
+			}
+			
+			#banner ul li {
+				width: 15px;
+				height: 15px;
+				border: 1px solid black;
+				border-radius: 50%;
+				float: left;
+				margin-left: 10px;
+				line-height: 20px;
+				text-align: center;
+			}
+			
+			#banner ul li.on {
+				background: red;
+			}
+			/*<!-- 让四张图片都可以重叠在一起-->*/
+			
+			#banner_list div {
+				position: absolute;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="wrap">
+			<!--头部-->
+			<div class="head">
+
+				<div id="nav">
+					<a href="">
+						<img src="img/shininglogo.png" alt="" />
+					</a>
+					<div class="ulp">
+
+						<ul>
+							<li class="nav-list" id="nav-list1">
+								<a href="index.html">Home</a>
+							</li>
+							<li class="nav-list" id="nav-list2">
+								<a href="two_about.html">About</a>
+							</li>
+							<li class="nav-list" id="nav-list3">
+								<a href="three_rendering.html">Rendering</a>
+							</li>
+							<li class="nav-list" id="nav-list4">
+								<a href="4.animation.html">3D Animation</a>
+							</li>
+							<li class="nav-list" id="nav-list5">
+								<a href="5.Bim.html">Bim</a>
+							</li>
+							<li class="nav-list" id="nav-list6">
+								<a href="6.contact.html">Contact</a>
+							</li>
+							<li id="clear"></li>
+						</ul>
+					</div>
+				</div>
+				<img src="img/404AA45D-0944-4344-BBCD-3B5F73673850.png" class="shan" />
+			</div>
+		<!--包括大图滚动和瀑布流-->
+			<div class="baoguo" style="width: 100%;">
+				<!--大图开始滚动了-->
+				<div class="wrap1">
+					<div id="banner">
+						<ul>
+							<li class="on" id="1">1</li>
+							<li id="2">2</li>
+							<li id="3">3</li>
+						</ul>
+						<div id="banner_list" >
+							<div class="top3_run_pic" ><img src="img2/Banner (1).jpg" alt="" id="img1" class="imgs1" /></div>
+							<div class="top3_run_pic"><img src="img2/Banner (2).jpg" alt="" id="img1" class="imgs2" /></div>
+							<div class="top3_run_pic"><img src="img2/Banner (3).jpg" alt="" id="img1" class="imgs3" /></div>
+						</div>
+					</div>
+				</div>
+				<!--瀑布流出现了-->
+				<ul class="wrapp">
+					</ul>
+					<div class="masking" style="z-index: 100">
+						<div class="box"></div>
+					</div>
+				
+			</div>
+			<!--下部-->
+		<div class="footer">
+			<div class="mail">
+				<img src="img/mail.jpg" />
+				<img src="img/mail_h.jpg" class="f_mail"/>
+			</div>
+			<div>
+				<ul>
+					<li id="li1">
+						<img src="img/facebook.jpg" />
+						<img src="img/facebook_h.jpg" id="f_fh"/>
+						
+					</li>
+					<li id="li2">
+						<img src="img/youtube.jpg" />
+							<img src="img/youtube_h.jpg" id="ytb"/>
+					</li>
+					<li id="li3">
+						<img src="img/linkedln.jpg" />
+							<img src="img/linkedln_h.jpg" id="lin"/>
+					</li>
+					<li id="li4">
+						<img src="img/twitter.jpg" alt="" />
+							<img src="img/twitter_h.jpg" id="twi"/>
+					</li>
+				</ul>
+			</div>
+			<div class="copyright">
+				Copyright © 1998-2015 shining Group
+			</div>
+		</div>
+		</div>
+		
+	</body>
+
+	<script type="text/javascript">
+		//列数数组，存储每列的高度
+		var colArr;
+		//比例变量
+		var ratio;
+
+		function imgClick(ev) {
+			ev.stopPropagation()
+				//处理响应式，点击背景滑动，滚动条等问题
+//			$("body").css("overflow", "visible")
+
+			//	jQuery转化为DOM对象
+			$(".masking").css("display", "block");
+
+			//当只有一个参数时,表示获得该属性,当有两个参数时,第一个参数表示取属性,第二个表示设值
+			var index = $(this).attr("index")
+			var url = 'imgbig/' + index + ".jpg";
+			var img = new Image()
+			img.src = url;
+		img.onload = function() {
+				var ableW = $(window).width() * 0.8;
+				var ableH = $(window).height() * 0.8;
+				var ableS = ableW / ableH;
+				var imgW = img.width;
+				var imgH = img.height;
+				var imgS = imgW / imgH;
+				//设置宽高
+				if(ableS >= imgS) {
+					$(".box").height(ableH)
+						//var w=ableH*imgS;
+					$(".box").width(ableH * imgS)
+				} else {
+					$(".box").width(ableW)
+					$(".box").height(ableW / imgS)
+				}
+
+				$(".box").append($(img))
+
+				//设置方位
+				var l = ($(window).innerWidth() - $(".box").outerWidth()) / 2;
+				var t = ($(window).innerHeight() - $(".box").outerHeight()) / 2;
+				$(".box").css({
+					left: l,
+					top: t
+				})
+
+				$(".box")[0].style.border = "10px solid white";
+				$(".box")[0].style.position = "absolute";
+			}
+
+		}
+
+		$(document).click(function() {
+			$(".box").empty();
+			$(".box").attr("style", " ");
+//			$("body").css("overflow", "auto");
+			$(".masking").css("display", "none");
+			console.log("22")
+		})
+
+		//第一步呦
+		function createLi(url, index) {
+			//创建DOM结构中出现的元素节点
+			//创建li元素就是这样创建的
+			var li = $("<li class='li'></li>")
+			var a = $("<a href='javascript:'></a>")
+			var img = new Image();
+			var div = $("<div></div>")
+			var smalldiv = $("<div><span><img src='imgsmall/fangda.png'></span></div>")
+			smalldiv.css("display", "none")
+			
+			div.append(smalldiv)
+				//			给div添加一个类
+			div.addClass("cover")
+			
+			//形成DOM树
+			a.append($(img));
+			a.append(div)
+			a.appendTo(li)
+				//			console.log(index)
+				//给a添加点击方法(设置一个属性可以连接大小图)
+			a.attr("index", index)
+
+			a.click(imgClick)
+			li.hover(
+				function() {
+					smalldiv.css("display", "block").css("width", "10%").css("height", "10%").css("position", "absolute").css({
+						"top": "45%",
+						"left": "45%"
+					});
+					div.css("background-color", "rgba(0, 0, 0, 0.3)");
+				},
+				function() {
+					smalldiv.css("display", "none");
+					div.css("background-color", "transparent");
+				}
+			);
+			//获得图片资源并请求
+			img.src = url;
+			
+			img.draggable = false;
+			img.onload = function() {
+				img.onload = null;
+				//				获取的图片请求得到的原宽高
+				//				console.log(this.width,this.height)
+				//				等比缩放后的盒子的高
+				var maxH = $('.wrapp').width() * ratio / this.width * this.height;
+				//将li添加到DOM中，便可以拿到等比缩放后的盒子的高，就是等比缩放的高
+				addLi(li);
+				var minH = $(img).height()
+					//				设置相关联元素盒子的高度
+					//				a.height(minH);
+					//				li.height(minH);                                                       
+
+			}
+		}
+
+		//将li添加到DOM中
+		function addLi(li) {
+			//	设置li的相关参数,
+			var index = minIndex()
+			var l = $(".wrapp").width() * ratio * index;
+			var t = colArr[index];
+			li.css({
+				left: l,
+				top: t
+			});
+			//得到的参数li是JQ对象
+			li.appendTo($(".wrapp"))
+			//更新数组(可视高度)
+			colArr[index] += li.outerHeight();
+//			此colArr数组,取出得一个值就是指高度
+			console.log(colArr[maxIndex()])
+			$(".wrapp").height(colArr[maxIndex()])
+		}
+		
+		//获得最短列的索引
+		function minIndex() {
+			var index = 0;
+			for(var i = 1; i < colArr.length; i++) {
+				if(colArr[index] > colArr[i]) {
+					index = i;
+				}
+			}
+			return index;
+		}
+		//获得最长列的索引
+		function maxIndex(){
+			var max=0;
+			for (var i=1;i<colArr.length;i++) {
+				if(colArr[max]<colArr[i]){
+					max=i;
+				}
+			}
+			return max;
+		}
+//		求出最长的高度
+//		function maxheight(){
+//			var max=maxIndex();
+//			console.log(max)
+////			var H = colArr[max];
+////			colArr[max] += li.outerHeight();
+//		}
+		//屏幕尺寸发生变化会不断触发
+		$(window).resize(function() {
+			//响应式布局判断
+			responseJudge();
+//			$("body").css("overflow", "auto")
+			$(".masking").css("display", "none");
+			//取出所有布局好的li
+			var lis = $('.li');
+//			console.log(lis)
+			//遍历更新布局
+			for(var i = 0; i < lis.length; i++) {
+//				console.log(i)
+				var index = minIndex()
+				var l = $(".wrapp").width() * ratio * index;
+				var t = colArr[index];
+				lis.eq(i).css({
+					left: l,
+					top: t
+				});
+				//更新数组(可视高度)
+
+				colArr[index] += lis.eq(i).outerHeight();
+				$(".wrapp").height(colArr[maxIndex()])
+			}
+		})
+
+		//		createLi("imgsmall/1.jpg");
+		//		createLi("imgsmall/2.jpg");
+		//		DOM加载完毕执行
+		$(function() {
+				responseJudge()
+					//$(".wrap").width($(window).innerWidth()*0.98);
+				for(var i = 0; i < 79; i++) {
+					//传i是为了让小图与大图建立某种关系
+					var url = "imgsmall/" + (i+1) + ".jpg";
+					createLi(url, i+1);
+
+				}
+			})
+			//响应式布局判断
+		function responseJudge() {
+			var width = $(window).outerWidth();
+			
+			if(width > 860) {
+				ratio = 1 / 4;
+				colArr = [0, 0, 0, 0];
+			} else if(width > 480) {
+				ratio = 1 / 3;
+				colArr = [0, 0, 0];
+			} else {
+				ratio = 1 / 2;
+				colArr = [0, 0];
+			}
+		}
+	</script>
+	<script type="text/javascript">
+		var t = n = 0,
+			count = 3;
+
+		$(document).ready(function() {
+
+			$("#banner li").click(function(ev) {
+				ev.stopPropagation();
+				var i = $(this).text() - 1; //获取Li元素内的值，即1，2，3，4
+				n = i; //0，1，2，3
+
+				//点击时让所有的孩子消失，让被点击的那张图片出来
+				$("#banner_list div").filter(":visible").fadeOut(1500).parent().children().eq(i).fadeIn(1000);
+				//				
+				$(this).toggleClass("on");
+				//	让被点击过的div失去class这个类
+				$(this).siblings().removeAttr("class");
+			});
+			t = setInterval("showAuto()", 5000);
+
+			$("#banner li").hover(function() {
+				clearInterval(t)
+			});
+		})
+
+		function showAuto() {
+			//好有用的一招，可以让它从尾回到头
+			n = n >= (count - 1) ? 0 : ++n;
+			//随着定时器自己动，在动的时候会触发click事件
+			$("#banner li").eq(n).trigger('click');
+		}
+	</script>
+
+</html>
+
+<!--三个版本：1，轮播继续改
+2，透明度加偏移
+3，jquery-->

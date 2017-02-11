@@ -1,0 +1,294 @@
+.head {
+	width: 100%;
+	height: 70px;
+	/*height: 4.2em;*/
+	/*border: 1px solid rgb(164,164,164);*/
+	background-color: rgb(33, 33, 33);
+}
+
+#nav {
+	max-width: 1200px;
+	margin: 0 auto;
+	/** 用不了,auto没有用,只有写一个数才行*/
+	/*margin: 0px 400px;*/
+}
+
+.ulp {
+	margin-top: -30px;
+	margin-left: 40%;
+	height: 30px;
+	/*background-color: green;*/
+	width: 900px;
+	/*display: block;*/
+}
+
+#nav ul li {
+	list-style-type: none;
+	width: 60px;
+	/*width: 10%;*/
+	/*height: 25px;*/
+	line-height: 25px;
+	text-align: center;
+	/*float: left;*/
+	display: inline-block;
+	margin-right: 40px;
+	/*border: 1px solid white;
+	border-radius: 6px;*/
+}
+
+
+/*.clear{
+	clear: both;
+}*/
+
+#nav ul li a {
+	text-decoration: none;
+	color: rgb(167, 166, 153);
+}
+
+#nav-list2 {
+	border: 1px solid white;
+	border-radius: 6px;
+}
+
+.head #nav #nav-list4 {
+	margin-left: 10px;
+	width: 120px;
+}
+
+.head #nav #nav-list3 {
+	width: 90px;
+}
+
+.head #nav #nav-list6 {
+	width: 80px;
+}
+
+.head #nav #nav-list1:hover {
+	border: 1px solid white;
+	border-radius: 6px;
+}
+
+.head #nav #nav-list3:hover {
+	border: 1px solid white;
+	border-radius: 6px;
+}
+
+.head #nav #nav-list4:hover {
+	border: 1px solid white;
+	border-radius: 6px;
+}
+
+.head #nav #nav-list5:hover {
+	border: 1px solid white;
+	border-radius: 6px;
+}
+
+.head #nav #nav-list6:hover {
+	border: 1px solid white;
+	border-radius: 6px;
+}
+
+#nav img {
+	/*float: left;*/
+	margin-top: 16px;
+	/*margin-right: 00px;*/
+}
+
+.shan {
+	float: right;
+	margin-top: -30px;
+	margin-right: 10px;
+	display: none;
+}
+/*中间部分*/
+.main2 {
+	width: 100%;
+	
+	/*好难理解为啥加个center就可以了,是不是加center就可以确定中间是有图的了？*/
+	background: url(../img/world_map.png) center no-repeat;
+	/*background-color: red;*/
+	background-color: rgb(226,226,226);
+	position: relative;
+	border: 1px solid rgb(226,226,226);
+}
+
+
+.m_left {
+	width: 100%;
+	/*margin: 0 auto;*/
+	padding: 0px 0 0;
+	max-width: 1127px;
+}
+
+.m_left_center {
+	width:490px;
+	text-align: left;
+	padding-top: 100px;
+	padding-left: 10px;
+}
+.m_left_center h3{
+	font-size: 25px;
+	  font-family: Arial,sans-serif,Microsoft YaHei;
+}
+/*//静态设置*/
+.m_left_center .p1{
+	font-size: medium;
+	font-family: arial;
+	font-weight: lighter;
+	color: rgb(0,0,0);
+	padding-bottom: 4em;
+	padding-top: 1em;
+	padding-left: 0px;
+	padding-right: 0x;
+	margin: 0px 0px 0px 80px;
+	line-height: 2em;
+	word-break: break-all;
+	display: block;
+	}
+.m_left_center .p2{
+	font-size: medium;
+	font-family: arial;
+	font-weight: lighter;
+	color: rgb(0,0,0);
+	padding-bottom: 2em;
+	padding-top: 0px;
+	padding-left: 0px;
+	padding-right: 0x;
+	margin: 0px 0px 0px 80px;
+	line-height: 2em;
+	word-break: break-all;
+	display: block;
+}
+.m_right{
+	width: 60%;
+	height: 500px;
+	position: absolute;
+	top: 0px;
+	left: 40%;
+	/*background-color: red;*/
+}
+.m_bottom{
+	width: 100%;
+	margin: 0 auto;
+	}
+/*子级li有浮动,对父级清浮动*/
+.m_bottom ul{
+	overflow: hidden;
+}
+.m_bottom ul li{
+	list-style-type: none;
+	float: left;
+	margin-right: 60px;
+}
+/*//脚步*/
+.footer {
+	width: 100%;
+	text-align: center;
+	margin-top: 60px;
+}
+
+.footer ul li {
+	margin-top: 15px;
+	margin-left: 10px;
+	display: inline-block;
+	list-style-type: none;
+	
+}
+.footer ul li:nth-child(1){
+	width:25px;
+	height: 25px;
+	position: relative;
+}
+.footer ul li:nth-child(2){
+	width:25px;
+	height: 25px;
+	position: relative;
+}
+.footer ul li:nth-child(3){
+	width:25px;
+	height: 25px;
+	position: relative;
+}
+.footer ul li:nth-child(4){
+	width:25px;
+	height: 25px;
+	position: relative;
+}
+.footer ul li img:nth-child(2){
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: none;
+}
+
+.footer ul li a {
+	display: block;
+	text-decoration: none;
+}
+.footer .mail{
+	width: 35px;
+	height: 26px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.footer .mail img:nth-child(2){
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: none;
+}
+.copyright {
+	margin-top: 15px;
+	font-size: 0.88em;
+	color: rgb(127, 127, 127);
+}
+
+
+@media screen and (min-width:640px) and (max-width:850px) {
+	.ulp {
+		display: none;
+	}
+	.shan {
+		display: block;
+		
+	}
+}
+
+@media screen and (min-width:320px) and (max-width:640px) {
+.ulp {
+		display: none;
+	}
+.shan {
+		display: block;
+		transform: scale(1.5);
+		}
+	.m_left_center{
+		width: 95%;
+	}	
+ .p1{
+	font-size: 0.9em;
+	}	
+.p2{
+	font-size: 0.9em;
+	}
+
+}
+/*当滑到320时,布局又会回到最原始的第一个布局,所以不需要设置任何东西*/
+/*只需要设置一个字体的宽度就可以了*/
+@media screen and (max-width:320px) {
+	.ulp {
+		display: none;
+	}
+.shan {
+		display: block;
+		transform: scale(1.5);
+		}
+	/*.m_left_center{
+		width: 490px;
+		text-align: left;
+		padding-top: 100px;
+		padding-left: 10px;
+	}	*/
+}

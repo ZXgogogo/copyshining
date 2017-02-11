@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>4</title>
+		<script type="text/javascript" src="js/JQuery-3.1.1.min.js"></script>
+		<script type="text/javascript" src="js/four.js"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			.wrap {
+				width: 100%;
+				/*height: 100vw;*/
+			}
+			/*头部*/
+			.head {
+				width: 100%;
+				height: 70px;
+				background-color: rgb(33, 33, 33);
+			}
+			
+			#nav {
+				max-width: 1200px;
+				margin: 0 auto;
+				/** 用不了,auto没有用,只有写一个数才行*/
+				/*margin: 0px 400px;*/
+			}
+			
+			.ulp {
+				margin-top: -30px;
+				margin-left: 40%;
+				height: 30px;
+				width: 900px;
+			}
+			
+			#nav ul li {
+				list-style-type: none;
+				width: 60px;
+				line-height: 25px;
+				text-align: center;
+				display: inline-block;
+				margin-right: 40px;
+			}
+			
+			#nav ul li a {
+				text-decoration: none;
+				color: rgb(167, 166, 153);
+			}
+			
+			#nav-list4 {
+				border: 1px solid white;
+				border-radius: 6px;
+			}
+			
+			.head #nav #nav-list4 {
+				margin-left: 10px;
+				width: 120px;
+			}
+			
+			.head #nav #nav-list3 {
+				width: 90px;
+			}
+			
+			.head #nav #nav-list6 {
+				width: 80px;
+			}
+			
+			.head #nav #nav-list2:hover {
+				border: 1px solid white;
+				border-radius: 6px;
+			}
+			
+			.head #nav #nav-list3:hover {
+				border: 1px solid white;
+				border-radius: 6px;
+			}
+			
+			.head #nav #nav-list1:hover {
+				border: 1px solid white;
+				border-radius: 6px;
+			}
+			
+			.head #nav #nav-list5:hover {
+				border: 1px solid white;
+				border-radius: 6px;
+			}
+			
+			.head #nav #nav-list6:hover {
+				border: 1px solid white;
+				border-radius: 6px;
+			}
+			
+			#nav img {
+				margin-top: 16px;
+			}
+			
+			.shan {
+				float: right;
+				margin-top: -30px;
+				margin-right: 10px;
+				display: none;
+			}
+			/*中间部分*/
+			
+			.video {
+				width: 100%;
+				position: relative;
+				margin-bottom: 1em;
+				background-color: #1b1b1b;
+			}
+			/*对视频进行样式设置*/
+			/*对头部视频设样式*/
+			iframe{
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 100%;
+				
+			}
+			.myvideo{
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 100%;
+			}
+			
+			a {
+				display: block;
+				cursor: auto;
+				color: #000000;
+				outline: none;
+				text-decoration: none;
+			}
+			
+			.z_bigplay {
+				width: 4%;
+				position: absolute;
+				top: 41%;
+				left: 49%;
+			}
+			
+			.z_bigphoto {
+				width: 100%;
+				display: block;
+				max-width: 1127px;
+				margin: auto;
+			}
+			
+			span {
+				display: block;
+				font-family: arial;
+				color: #b4b4b4;
+			}
+			
+			#mask {
+				width: 100%;
+				background-color: black;
+				opacity: 0.6;
+				position: absolute;
+				bottom: 0;
+				text-align: center;
+			}
+			
+			.mask-wrap {
+				width: 80%;
+				color: #b4b4b4;
+				margin-left: 4%;
+			}
+			
+			.z_mask-wrap-title {
+				font-size: 1.4em;
+				margin: 2% 0 1% 0;
+				line-height: 1.2em;
+			}
+			
+			.work {
+				/*background-color: red;*/
+				width: 100%;
+				overflow: hidden;
+			}
+			
+			.work ul {
+				list-style-type: none;
+				width: 100%;
+				max-width: 1127px;
+				margin: 0 auto;
+				/*background-color: green;*/
+				/*position: relative;*/
+				/*height: 800px;*/
+			}
+			/*//有的不大懂*/
+			.work ul li {
+				float: left;
+				/*min-height: 186px;*/
+				width: 31%;
+				margin: 0 1.1%;
+				
+				min-height: 186px;
+				/*background-color: gold;*/
+			}
+			.work ul li a{
+				display: block;
+				position: relative;
+			}
+			.z_videos img {
+				display: block;
+				width: 100%;
+			}
+			/*黄色的*/
+			.z_videos.on-left {
+				position: relative;
+			}
+			
+			.z_videos.on-right {
+				position: relative;
+			}
+			
+			.z_videos.on-left .z_videos-play {
+				width: 7%;
+				position: absolute;
+				left: 46%;
+				top: 44%;
+				display: none;
+			}
+			/*白色的*/
+			
+			.z_videos.on-left .z_videos-play_h {
+				width: 7%;
+				position: absolute;
+				left: 46%;
+				top: 44%;
+			}
+			
+			.z_videos.on-right .z_videos-play {
+				width: 7%;
+				position: absolute;
+				left: 46%;
+				top: 44%;
+				display: none;
+			}
+			/*白色的*/
+			
+			.z_videos.on-right .z_videos-play_h {
+				width: 7%;
+				position: absolute;
+				left: 46%;
+				top: 44%;
+			}
+			/*有一点不懂*/
+			.z_videos.on-right>a:hover .z_videos-play{
+				display: block;
+				}
+			.z_videos.on-left>a:hover .z_videos-play{
+				display: block;
+				}
+			
+			.z_intro {
+				width: 100%;
+				color: #B4B4B4;
+				margin-top: 2%;
+				text-align: center;
+				font-family: Arial, sans-serif, Microsoft YaHei;
+			}
+			
+			.z_intro dl {
+				width: 100%;
+			}
+			
+			.z_intro dt {
+				width: 100%;
+				font-size: 1.2em;
+				padding: 4% 0;
+			}
+		
+			
+			/*脚步*/
+			.footer {
+				/*background-color: green;*/
+				width: 100%;
+				text-align: center;
+				margin-top: 60px;
+				position: relative;
+			}
+			
+			.footer ul li {
+				margin-top: 15px;
+				margin-left: 10px;
+				display: inline-block;
+				list-style-type: none;
+			}
+			
+			.footer ul li:nth-child(1) {
+				width: 25px;
+				height: 25px;
+				position: relative;
+			}
+			
+			.footer ul li:nth-child(2) {
+				width: 25px;
+				height: 25px;
+				position: relative;
+			}
+			
+			.footer ul li:nth-child(3) {
+				width: 25px;
+				height: 25px;
+				position: relative;
+			}
+			
+			.footer ul li:nth-child(4) {
+				width: 25px;
+				height: 25px;
+				position: relative;
+			}
+			
+			.footer ul li img:nth-child(2) {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				display: none;
+			}
+			
+			.footer ul li a {
+				display: block;
+				text-decoration: none;
+			}
+			
+			.footer .mail {
+				width: 35px;
+				height: 26px;
+				margin: 0 auto;
+				position: relative;
+			}
+			
+			.footer .mail img:nth-child(2) {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				display: none;
+			}
+			
+			.copyright {
+				margin-top: 15px;
+				font-size: 0.88em;
+				color: rgb(127, 127, 127);
+			}
+			
+			@media screen and (min-width:850px) and (max-width:960px) {
+				.z_videos.on-left {
+					width: 50%;
+					float: right;
+				}
+				.z_videos.on-right {
+					width: 50%;
+					float: left;
+				}
+				.z_intro {
+					margin-top: 60%;
+					width: 36%;
+					font-size: 0.9em;
+				}
+				.z_mask-wrap-title {
+					font-size: 1em;
+					margin: 2% 0 1% 0;
+					line-height: 1.2em;
+				}
+			}
+			
+			@media only screen and (min-width: 640px) and (max-width: 850px) {
+				.ulp {
+					display: none;
+				}
+				.shan {
+					display: block;
+				}
+				.z_videos.on-left {
+					width: 50%;
+					float: right;
+				}
+				.z_videos.on-right {
+					width: 50%;
+					float: left;
+				}
+				.z_intro {
+					margin-top: 60%;
+					width: 36%;
+					font-size: 0.9em;
+				}
+				.z_mask-wrap-title {
+					font-size: 1em;
+					margin: 2% 0 1% 0;
+					line-height: 1.2em;
+				}
+			}
+			/*min-width: 640px大于640的都是变大1.5倍的*/
+			
+			@media only screen and (max-width: 640px) {
+				.shan {
+					display: block;
+					transform: scale(1.5);
+				}
+				.ulp {
+					display: none;
+				}
+				.z_videos.on-left {
+					width: 100%;
+				}
+				.z_videos.on-right {
+					width: 100%;
+				}
+				.z_intro {
+					margin-top: 50%;
+					width: 70%;
+					min-width: 80px;
+					font-size: 0.5em;
+					text-align: center;
+				}
+				.z_mask-wrap-title {
+					font-size: 1em;
+					margin: 2% 0 1% 0;
+					line-height: 1.2em;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<!--头部-->
+			<div class="head">
+				<div id="nav">
+					<a href="">
+						<img src="img/shininglogo.png" alt="" />
+					</a>
+					<div class="ulp">
+
+						<ul>
+							<li class="nav-list" id="nav-list1">
+								<a href="index.html">Home</a>
+							</li>
+							<li class="nav-list" id="nav-list2">
+								<a href="two_about.html">About</a>
+							</li>
+							<li class="nav-list" id="nav-list3">
+								<a href="three_rendering.html">Rendering</a>
+							</li>
+							<li class="nav-list" id="nav-list4">
+								<a href="4.animation.html">3D Animation</a>
+							</li>
+							<li class="nav-list" id="nav-list5">
+								<a href="5.Bim.html">Bim</a>
+							</li>
+							<li class="nav-list" id="nav-list6">
+								<a href="6.contact.html">Contact</a>
+							</li>
+							<li id="clear"></li>
+						</ul>
+					</div>
+				</div>
+				<img src="img/404AA45D-0944-4344-BBCD-3B5F73673850.png" class="shan" />
+			</div>
+			<!--中间-->
+			<div class="content4">
+				<!--展示视频-->
+				<div class="video">
+				<a href="###" class="biga">
+						<img src="img4/play.png" class="z_bigplay" />
+						<img src="img4/2-150Z2105915292.jpg" class="z_bigphoto" />
+				<span id="mask">
+				<div class="mask-wrap">
+					<span class="z_mask-wrap-title">Sichuan Province-Commercial Rea</span>
+				</div>
+				</span>
+				</a>
+				<iframe src="" ></iframe>
+			</div>
+			<!--//作品展示-->
+			<div class="work">
+				<ul class="ils">
+					<li>
+						<div class="z_videos on-left">
+							<a href="###" class="a1">
+								<img src="img4/1-1510121R410H3.jpg" alt="" />
+								<img src="img4/play_small_b.png" class="z_videos-play">
+								<img src="img4/play_small_h.png" class="z_videos-play_h" />
+								<video style="display: none;" class="myvideo">
+									<source src="http://v.yinyuetai.com/video/2679540?f=TG-360KAN-YY"></source>
+								</video>
+							</a>
+						</div>
+						<div class="z_intro on-right">
+							<dl>
+								<dt>Commercial Real Estate-2014-10</dt>
+								<dd style="text-align: center;"></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<div class="z_videos on-right">
+							<a href="###" class="a2">
+							<img src="img4/1-1510121U305330.jpg" alt="" />
+							<img src="img4/play_small_b.png" class="z_videos-play">
+							<img src="img4/play_small_h.png" class="z_videos-play_h" />
+							<video style="display: none;" class="myvideo">
+									<source src="http://v.yinyuetai.com/video/2679540?f=TG-360KAN-YY"></source>
+								</video>
+							</a>
+						</div>
+						<div class="z_intro on-left">
+							<dl>
+								<dt>Commercial Real Estate-2014-10</dt>
+								<dd style="text-align: center;"></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<div class="z_videos on-left">
+							<a href="###" class="a3">
+							<img src="img4/1-1510121U33Ic.jpg" alt="" />
+							<img src="img4/play_small_b.png" class="z_videos-play">
+							<img src="img4/play_small_h.png" class="z_videos-play_h" />
+							<video style="display: none;" class="myvideo">
+									<source src="http://v.yinyuetai.com/video/2679540?f=TG-360KAN-YY"></source>
+							</video>
+							</a>
+							
+
+						</div>
+						<div class="z_intro on-right">
+							<dl>
+								<dt>Commercial Real Estate-2014-10</dt>
+								<dd style="text-align: center;"></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<div class="z_videos on-right">
+							<a href="###" class="a4">
+								<img src="img4/1-1510121U04XL.jpg" alt="" />
+								<img src="img4/play_small_b.png" class="z_videos-play">
+								<img src="img4/play_small_h.png" class="z_videos-play_h" />
+								<video style="display: none;" class="myvideo" autoplay="autoplay">
+									<source src="http://v.yinyuetai.com/video/2679540?f=TG-360KAN-YY" ></source>
+								</video>
+							</a>
+						</div>
+						<div class="z_intro on-left">
+							<dl>
+								<dt>Commercial Real Estate-2014-10</dt>
+								<dd style="text-align: center;"></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<div class="z_videos on-left">
+							<a href="###" class="a5">
+								<img src="img4/1-1510121U004292.jpg" alt="" />
+								<img src="img4/play_small_b.png" class="z_videos-play">
+								<img src="img4/play_small_h.png" class="z_videos-play_h" />
+								<video style="display: none;" class="myvideo">
+									<source src="http://v.yinyuetai.com/video/2679540?f=TG-360KAN-YY"></source>
+								</video>
+							</a>
+						</div>
+						<div class="z_intro on-right">
+							<dl>
+								<dt>Commercial Real Estate-2014-10</dt>
+								<dd style="text-align: center;"></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<div class="z_videos on-right">
+							<a href="###" class="a6">
+								<img src="img4/1-1510121T91XV.jpg" alt="" />
+								<img src="img4/play_small_b.png" class="z_videos-play">
+								<img src="img4/play_small_h.png" class="z_videos-play_h" />
+								<video style="display: none;" class="myvideo">
+									<source src="http://v.yinyuetai.com/video/2679540?f=TG-360KAN-YY"></source>
+								</video>
+							</a>
+						</div>
+						<div class="z_intro on-left">
+							<dl>
+								<dt>Commercial Real Estate-2014-10</dt>
+								<dd style="text-align: center;"></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<div class="z_videos on-left">
+							<a href="###" class="a7">
+								<img src="img4/1-1510121TTOc.jpg" alt="" />
+								<img src="img4/play_small_b.png" class="z_videos-play">
+								<img src="img4/play_small_h.png" class="z_videos-play_h" />
+								<video style="display: none;" class="myvideo">
+									<source src="http://v.yinyuetai.com/video/2679540?f=TG-360KAN-YY"></source>
+								</video>
+							</a>
+						</div>
+						<div class="z_intro on-right">
+							<dl>
+								<dt>Commercial Real Estate-2014-10</dt>
+								<dd style="text-align: center;"></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<div class="z_videos on-right">
+							<a href="###" class="a8">
+								<img src="img4/1-1510121TP0U1.jpg" alt="" />
+								<img src="img4/play_small_b.png" class="z_videos-play">
+								<img src="img4/play_small_h.png" class="z_videos-play_h" />
+								<video style="display: none;" class="myvideo">
+									<source src="http://v.yinyuetai.com/video/2679540?f=TG-360KAN-YY"></source>
+								</video>
+							</a>
+						</div>
+						<div class="z_intro on-left">
+							<dl>
+								<dt>Commercial Real Estate-2014-10</dt>
+								<dd style="text-align: center;"></dd>
+							</dl>
+						</div>
+					</li>
+					<li>
+						<div class="z_videos on-left">
+							<a href="###" class="a9">
+								<img src="img4/1-1510121SHX34.jpg" alt="" />
+								<img src="img4/play_small_b.png" class="z_videos-play">
+								<img src="img4/play_small_h.png" class="z_videos-play_h" />
+								<video style="display: none;" class="myvideo">
+									<source src="http://v.yinyuetai.com/video/2679540?f=TG-360KAN-YY"></source>
+								</video>
+							</a>
+						</div>
+						<div class="z_intro on-right">
+							<dl>
+								<dt>Commercial Real Estate-2014-10</dt>
+								<dd style="text-align: center;"></dd>
+							</dl>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--脚步-->
+		<div class="footer">
+			<div class="mail">
+				<img src="img/mail.jpg" />
+				<img src="img/mail_h.jpg" class="f_mail" />
+			</div>
+			<div>
+				<ul>
+					<li id="li1">
+						<img src="img/facebook.jpg" />
+						<img src="img/facebook_h.jpg" id="f_fh" />
+
+					</li>
+					<li id="li2">
+						<img src="img/youtube.jpg" />
+						<img src="img/youtube_h.jpg" id="ytb" />
+					</li>
+					<li id="li3">
+						<img src="img/linkedln.jpg" />
+						<img src="img/linkedln_h.jpg" id="lin" />
+					</li>
+					<li id="li4">
+						<img src="img/twitter.jpg" alt="" />
+						<img src="img/twitter_h.jpg" id="twi" />
+					</li>
+				</ul>
+			</div>
+			<div class="copyright">
+				Copyright © 1998-2015 shining Group
+			</div>
+		</div>
+	</body>
+	</div>
+	</body>
+	<script type="text/javascript">
+	console.log($(".biga"))
+	console.log($(".a1"))
+	//为什么点第一个却获取不到
+//	$(".biga").click(function(){
+//		console.log("1111")
+//		$("iframe").attr("src","http://v.yinyuetai.com/video/2679540?f=TG-360KAN-YY")
+//	})
+	$(".a1").click(function(){
+	$("iframe").attr("src","https://www.youtube.com/embed/o9e1Hys-a9s")
+	})
+	$(".a2").click(function(){
+	$("iframe").attr("src","http://www.iqiyi.com/v_19rr9dz99o.html?vfm=f_245_360d")
+	})
+	$(".a3").click(function(){
+	$("iframe").attr("src","http://www.iqiyi.com/v_19rr9dz99o.html?vfm=f_245_360d")
+	})
+	$(".a4").click(function(){
+	$("iframe").attr("src","http://www.iqiyi.com/v_19rr9dz99o.html?vfm=f_245_360d")
+	})
+	$(".a5").click(function(){
+	$("iframe").attr("src","http://www.iqiyi.com/v_19rr9dz99o.html?vfm=f_245_360d")
+	})
+	$(".a6").click(function(){
+	$("iframe").attr("src","http://www.iqiyi.com/v_19rr9dz99o.html?vfm=f_245_360d")
+	})
+	$(".a7").click(function(){
+	$("iframe").attr("src","http://www.iqiyi.com/v_19rr9dz99o.html?vfm=f_245_360d")
+	})
+	$(".a8").click(function(){
+	$("iframe").attr("src","http://www.iqiyi.com/v_19rr9dz99o.html?vfm=f_245_360d")
+	})
+	$(".a9").click(function(){
+	$("iframe").attr("src","http://www.iqiyi.com/v_19rr9dz99o.html?vfm=f_245_360d")
+	})
+//	var url1="http://www.iqiyi.com/v_19rr9dz99o.html?vfm=f_245_360d";
+//	var url2="https://www.youtube.com/embed/o9e1Hys-a9s";
+//	$(".a").click(function(){
+//		$("iframe").attr("src",url1)
+//	})
+//	for (var i=1;i<=5;i++) {
+//	(function(i){
+//		$(".a").click(function(){
+//		$("iframe").attr("src","url"+i)
+//	})
+//		})
+//	}
+	
+	</script>
+</html>
